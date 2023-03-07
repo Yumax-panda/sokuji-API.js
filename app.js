@@ -12,6 +12,7 @@ app.listen(port, () => console.log(`listening on port ${port}`));
 
 
 app.get('/user/:user_id', async (req, res) => {
+    res.set({'Access-Control-Allow-Origin': '*'});
     const { user_id } = req.params;
     const user = await db.get(user_id);
     if (user) {
